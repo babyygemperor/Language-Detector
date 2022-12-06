@@ -44,6 +44,6 @@ def my_form():
 
 @app.route('/', methods=["POST"])
 def post_gui_predict():
-    text = request.form['text']
+    text = request.form['pred']
     input_vals = {'predict': text}
-    return predict(input_vals)['lang']
+    return render_template('my-form.html', prediction="Prediction", result=f"{predict(input_vals)['lang']}: {text}")
