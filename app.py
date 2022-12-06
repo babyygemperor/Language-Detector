@@ -19,7 +19,7 @@ def predict(input_json):
     text = input_json['predict']
     x = cv.transform([text]).toarray()  # converting text to bag of words model (Vector)
     lang = model.predict(x)  # predicting the language
-    lang = le.inverse_transform(lang)  # finding the language corresponding the the predicted value
+    lang = le.inverse_transform(lang)  # finding the language corresponding the predicted value
     input_json['lang'] = lang[0]
     print(input_json)
     return input_json  # printing the language
